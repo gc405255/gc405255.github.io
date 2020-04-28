@@ -50,6 +50,7 @@ texture:
     twitter: thelehhman
     github:  thelehhman
     linkedIn: in/thelehhman # format: locale/username
+    facebook: LungMungOasis
 ```
 
 **Styling**
