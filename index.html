@@ -1,1 +1,37 @@
-Hello World
+<html>
+    <body>
+        <canvas id="canvas"></canvas>
+    </body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mootools/1.6.0/mootools-core.min.js" integrity="sha512-P6QjhxYLbTLOHQpilU3lsmhwLfgVh/zN5rVzcGbmiTWhMcpkHVk8eqWk2vqvM0Z6OhJfrdbYoTzJtGQYUj8ibw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+
+        var img1 = loadImage('https://truth.bahamut.com.tw/s01/202204/26f6cfd24fc72de226d769701180e973.PNG', main);
+        var img2 = loadImage('https://truth.bahamut.com.tw/s01/202204/d65cb4f0dad8a53e86240e8c6e46000a.PNG', main);
+
+        var imagesLoaded = 0;
+        function main() {
+            imagesLoaded += 1;
+
+            if(imagesLoaded == 2) {
+                // composite now
+                ctx.drawImage(img1, 0, 0);
+                
+                ctx.globalAlpha = 1;
+                ctx.drawImage(img2, 0, 0);
+            }
+        }
+
+        function loadImage(src, onload) {
+            // http://www.thefutureoftheweb.com/blog/image-onload-isnt-being-called
+            var img = new Image();
+            
+            img.onload = onload;
+            img.src = src;
+
+            return img;
+        }
+    </script>
+</html>
